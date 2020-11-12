@@ -219,6 +219,13 @@
     {
         "name": "Ethereum",
         "propertyName": "ethereum",
+        "globals": [
+            {
+                "name": "ChainIds",
+                "propertyName": "chainIds",
+                "functionName": "newEthereumGlobalsChainIds"
+            }
+        ],
         "spaces": [
             {
                 "name": "Blockchain Space",

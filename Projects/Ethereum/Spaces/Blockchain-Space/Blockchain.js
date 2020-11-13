@@ -111,10 +111,10 @@ function newEthereumBlockchainSpace() {
                         let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(2)
 
                         if (percentage !== "100.00") {
-                            networkClient.payload.uiObject.setStatus('Client is Syncing...')
+                            networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing...')
                             networkClient.payload.uiObject.setPercentage(percentage)
                         } else {
-                            networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName)
+                            networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http.')
                         }
                     }
                 }

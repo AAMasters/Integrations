@@ -110,12 +110,19 @@ function newEthereumBlockchainSpace() {
                         }
                         /* If it is not syncing, then we have the current block and the highets block too */
                         let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(4)
+                        let extraStatus = ''
+                        if (client.isSyncing.highestBlock - client.isSyncing.currentBlock < 100) {
+                            extraStatus = 'Block Download Finished. Downloading Trie Data Structure.'
+                        } else {
+                            extraStatus = 'Block Download Phase.'
+                            networkClient.payload.uiObject.setPercentage(percentage)
+                        }
+
                         networkClient.payload.uiObject.valueAtAngle = false
                         networkClient.payload.uiObject.setValue('Block ' + client.isSyncing.currentBlock + ' from ' + client.isSyncing.highestBlock + '. State ' + client.isSyncing.pulledStates + ' from ' + client.isSyncing.knownStates)
 
                         if (client.isSyncing.currentBlock !== client.isSyncing.highestBlock) {
-                            networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing...')
-                            networkClient.payload.uiObject.setPercentage(percentage)
+                            networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus)
                         } else {
                             networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ')
                         }

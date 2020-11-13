@@ -39,6 +39,7 @@ function newEthereumBlockchainSpace() {
             let now = (new Date()).valueOf()
             if (now - lastTryToReconnectDatetime > 3000) {
                 connectingPhysics()
+                lastTryToReconnectDatetime = now
             }
         }
     }
@@ -77,7 +78,7 @@ function newEthereumBlockchainSpace() {
                                 networkClient.payload.uiObject.setErrorMessage('Can not connect to this client.')
                                 return
                             }
-                            
+
                             client.chainId = await client.web3.eth.getChainId()
                             clientMap.set(networkClient.id, client)
                             setStatus()
@@ -108,13 +109,15 @@ function newEthereumBlockchainSpace() {
                             return
                         }
                         /* If it is not syncing, then we have the current block and the highets block too */
-                        let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(2)
+                        let percentage = (client.isSyncing.currentBlock * 100 / client.isSyncing.highestBlock).toFixed(4)
+                        networkClient.payload.uiObject.valueAtAngle = false
+                        networkClient.payload.uiObject.setValue('Block ' + client.isSyncing.currentBlock + ' from ' + client.isSyncing.highestBlock + '. State ' + client.isSyncing.pulledStates + ' from ' + client.isSyncing.knownStates)
 
-                        if (percentage !== "100.00") {
+                        if (client.isSyncing.currentBlock !== client.isSyncing.highestBlock) {
                             networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing...')
                             networkClient.payload.uiObject.setPercentage(percentage)
                         } else {
-                            networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http.')
+                            networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ')
                         }
                     }
                 }

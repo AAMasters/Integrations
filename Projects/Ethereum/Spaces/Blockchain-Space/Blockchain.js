@@ -80,11 +80,11 @@ function newEthereumBlockchainSpace() {
 
                         let params = {
                             method: 'getNetworkClientStatus',
-                            host:  config.host,
+                            host: config.host,
                             port: clientPort,
                             interface: clientInterface
                         }
-                
+
                         callWebServer(JSON.stringify(params), 'WEB3', onResponse)
 
                         function onResponse(err, data) {
@@ -101,16 +101,17 @@ function newEthereumBlockchainSpace() {
                                 networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + status.error)
                                 return
                             }
-                
+
                             showStatus(status)
                         }
 
                         async function showStatus(status) {
+                            const ANNIMATION_CYCLES_TO_LAST = 300
 
                             networkClient.payload.uiObject.resetErrorMessage()
 
                             if (status.isSyncing === false) {
-                                networkClient.payload.uiObject.setStatus('Client is looking for peers...', 200)
+                                networkClient.payload.uiObject.setStatus('Client is looking for peers...', ANNIMATION_CYCLES_TO_LAST)
                                 return
                             }
                             /* If it is not syncing, then we have the current block and the highets block too */
@@ -120,16 +121,50 @@ function newEthereumBlockchainSpace() {
                                 extraStatus = 'Block Download Phase Finished. Downloading Trie Data Structure.'
                             } else {
                                 extraStatus = 'Block Download Phase.'
-                                networkClient.payload.uiObject.setPercentage(percentage, 200)
+                                networkClient.payload.uiObject.setPercentage(percentage, ANNIMATION_CYCLES_TO_LAST)
                             }
 
                             networkClient.payload.uiObject.valueAtAngle = false
-                            networkClient.payload.uiObject.setValue('Block ' + status.isSyncing.currentBlock + ' from ' + status.isSyncing.highestBlock + '. State ' + status.isSyncing.pulledStates + ' from ' + status.isSyncing.knownStates, 200)
+                            networkClient.payload.uiObject.setValue(
+                                'Block ' + splitLargeNumber(status.isSyncing.currentBlock) +
+                                ' from ' + splitLargeNumber(status.isSyncing.highestBlock) +
+                                '. State ' + splitLargeNumber(status.isSyncing.pulledStates) +
+                                ' from ' + splitLargeNumber(status.isSyncing.knownStates)
+                                , 200)
 
                             if (status.isSyncing.currentBlock !== status.isSyncing.highestBlock) {
-                                networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus, 200)
+                                networkClient.payload.uiObject.setStatus('Connected via http. Client is Syncing... ' + extraStatus, ANNIMATION_CYCLES_TO_LAST)
                             } else {
-                                networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ', 200)
+                                networkClient.payload.uiObject.setStatus('Connected to ' + client.networkName + ' via http. ', ANNIMATION_CYCLES_TO_LAST)
+                            }
+
+                            function splitLargeNumber(number) {
+                                let label = number.toString()
+                                let result = label
+                                switch (label.length) {
+                                    case 4: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3]
+                                    }
+                                    case 5: {
+                                        return label[0] + label[1] + ',' + label[2] + label[3] + label[4]
+                                    }
+                                    case 6: {
+                                        return label[0] + label[1] + label[2] + ',' + label[3] + label[4] + label[5]
+                                    }
+                                    case 7: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3] + ',' + label[4] + label[5] + label[6]
+                                    }
+                                    case 8: {
+                                        return label[0] + label[1] + ',' + label[2] + label[3] + label[4] + ',' + label[5] + label[6] + label[7]
+                                    }
+                                    case 9: {
+                                        return label[0] + label[1] + label[2] + ',' + label[3] + label[4] + label[5] + ',' + label[6] + label[7] + label[8]
+                                    }
+                                    case 10: {
+                                        return label[0] + ',' + label[1] + label[2] + label[3] + ',' + label[4] + label[5] + label[6] + ',' + label[7] + label[8] + label[9]
+                                    }
+                                }
+                                return result
                             }
                         }
                     }

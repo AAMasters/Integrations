@@ -55,15 +55,8 @@
                 "actionFunction": "payload.executeAction"
             },
             {
-                "action": "Add UI Object",
-                "label": "Add Wallet Keys",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "walletKeys",
-                "relatedUiObject": "Wallet Keys",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
+                "action": "Create Wallet Account",
+                "actionProject": "Ethereum",
                 "label": "Add Wallet Account",
                 "relatedUiObject": "Wallet Account",
                 "actionFunction": "payload.executeAction"
@@ -130,42 +123,6 @@
         "icon": "ethereum"
     },
     {
-        "type": "Wallet Keys",
-        "menuItems": [
-            {
-                "action": "Configure",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.executeAction"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{ \n\"privateKey\": \"\", \n\"publicKey\": \"\"\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Ethereum Wallet->"
-        },
-        "propertyNameAtParent": "walletKeys",
-        "isPersonalData": true,
-        "icon": "ethereum"
-    },
-    {
         "type": "Wallet Account",
         "menuItems": [
             {
@@ -204,7 +161,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"value\": \"\"\n}"
+            "config": "{ \n\"address\": \"\",  \n\"privateKey\": \"\"\n}"
         },
         "addLeftIcons": true,
         "level": 3,
@@ -224,7 +181,8 @@
                 "childType": "Token Balance"
             }
         ],
-        "icon": "ethereum"
+        "icon": "ethereum",
+        "isPersonalData": true
     },
     {
         "type": "ETH Balance",

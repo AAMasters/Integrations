@@ -6,12 +6,17 @@ function newEthereumActionSwitch() {
         finalize: finalize
     }
 
-    let functionLibraryGeth = newGeth()
+    /* Superalgos Function Libraries */
+    let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
+
+    /* Ethereum Function Libraries */
+    let functionLibraryAccounts = newAccounts()
 
     return thisObject
 
     function finalize() {
-        functionLibraryGeth = undefined
+        functionLibraryUiObjectsFromNodes = undefined
+        functionLibraryAccounts = undefined
     }
 
     function initialize() {
@@ -20,16 +25,8 @@ function newEthereumActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Install Geth': {
-                functionLibraryGeth.install(action.node)
-                break
-            }
-            case 'Run Geth': {
-                functionLibraryGeth.run(action.node)
-                break
-            }
-            case 'Stop Geth': {
-                functionLibraryGeth.stop(action.node)
+            case 'Create Wallet Account': {
+                functionLibraryAccounts.createWalletAccount(action.node, functionLibraryUiObjectsFromNodes)
                 break
             }
         }

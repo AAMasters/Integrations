@@ -1,10 +1,10 @@
 function newEthereumWalletSpace() {
     const MODULE_NAME = 'Wallet Space'
- 
+
     let thisObject = {
         container: undefined,
         physics: physics,
-        draw: draw, 
+        draw: draw,
         getContainer: getContainer,
         finalize: finalize,
         initialize: initialize
@@ -12,6 +12,8 @@ function newEthereumWalletSpace() {
 
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
+
+    let lastTryToReconnectDatetime
 
     return thisObject
 
@@ -26,7 +28,45 @@ function newEthereumWalletSpace() {
     }
 
     function physics() {
+        walletBalancesPhysics()
+    }
 
+    async function walletBalancesPhysics() {
+
+        /* We will query the node only every 3 seconds */
+        if (lastTryToReconnectDatetime === undefined) {
+            checkStatus()
+            lastTryToReconnectDatetime = (new Date()).valueOf()
+        } else {
+            let now = (new Date()).valueOf()
+            if (now - lastTryToReconnectDatetime > 3000) {
+                checkStatus()
+                lastTryToReconnectDatetime = now
+            }
+        }
+
+        async function checkStatus() {
+            try {
+                if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+
+                let wallets = []
+                let hierarchyHeads = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeads()
+                for (let i = 0; i < hierarchyHeads.length; i++) {
+                    let hierarchyHead = hierarchyHeads[i]
+                    if (hierarchyHead.type === 'Ethereum Wallet') {
+                        wallets.push(hierarchyHead)
+                    }
+                }
+
+
+                for (let i = 0; i < wallets.length; i++) {
+                    let wallet = wallets[i]
+ 
+                }
+            } catch (err) {
+                console.log('[ERROR] checkStatus -> err = ' + err.stack) 
+            }
+        }
     }
 
     function getContainer(point) {
@@ -40,6 +80,6 @@ function newEthereumWalletSpace() {
     }
 
     function draw() {
- 
+
     }
- }
+}

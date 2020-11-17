@@ -130,6 +130,12 @@ function newEthereumBlockchainSpace() {
                             if (status.chainId > 0) {
                                 let networkName = UI.projects.ethereum.globals.chainIds.chainNameById(status.chainId)
                                 networkClient.payload.uiObject.setStatus('Connected to ' + networkName + ' via the ' + clientInterface + ' interface, through ' + networkClient.payload.referenceParent.name + ' Network Node.', ANNIMATION_CYCLES_TO_LAST)
+                                
+                                networkClient.payload.uiObject.valueAtAngle = false
+                                networkClient.payload.uiObject.setValue(
+                                    'Current Block Number ' + splitLargeNumber(status.currentBlockNumber) 
+                                    , 200)     
+                                    networkClient.payload.uiObject.setPercentage('100.00', ANNIMATION_CYCLES_TO_LAST)                           
                                 return
                             }
 

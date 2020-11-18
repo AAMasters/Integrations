@@ -71,33 +71,32 @@ function newEthereumWalletSpace() {
 
                     let walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
 
-                    let params = {
-                        method: 'createWalletAccount',
-                        entropy: walletAccountNode.id
-                    }
+                    let networkClient = blockchainNetwork.networkClients[j]
 
-                    let url = 'WEB3' // we don't need to ask this to any specific superalgos node.
+                    let route = UI.projects.ethereum.utilities.routeToClient.buildRouteToClient(networkClient)
 
-                    httpRequest(JSON.stringify(params), url, onResponse)
+                    if (route === undefined) { continue } // something went wrong building the route.
+
+                    route.params.method = 'getNetworkClientStatus'
+
+                    httpRequest(JSON.stringify(route.params), route.url, onResponse)
 
                     function onResponse(err, data) {
                         /* Lets check the result of the call through the http interface */
                         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
-                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
-                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                            networkClient.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
                             return
                         }
 
-                        let response = JSON.parse(data)
+                        let status = JSON.parse(data)
 
                         /* Lets check the result of the method call */
-                        if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
-                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
-                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                        if (status.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + status.error)
                             return
                         }
+
+                        showStatus(status)
                     }
                 }
             } catch (err) {

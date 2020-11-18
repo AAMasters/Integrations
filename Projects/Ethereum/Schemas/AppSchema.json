@@ -48,10 +48,10 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Network Reference",
+                "label": "Add Client Reference",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "networkReference",
-                "relatedUiObject": "Network Reference",
+                "propertyToCheckFor": "networkClientReference",
+                "relatedUiObject": "Network Client Reference",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -76,9 +76,9 @@
         "level": 0,
         "properties": [
             {
-                "name": "networkReference",
+                "name": "networkClientReference",
                 "type": "node",
-                "childType": "Network Reference",
+                "childType": "Network Client Reference",
                 "autoAdd": true
             },
             {
@@ -96,7 +96,7 @@
         "icon": "ethereum"
     },
     {
-        "type": "Network Reference",
+        "type": "Network Client Reference",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -109,17 +109,18 @@
             }
         ],
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "referenceAttachesTo": {
-            "compatibleTypes": "->Blockchain Network->"
+            "compatibleTypes": "->Network Client->"
         },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
-        "propertyNameAtParent": "networkReference",
+        "propertyNameAtParent": "networkClientReference",
         "icon": "ethereum"
     },
     {

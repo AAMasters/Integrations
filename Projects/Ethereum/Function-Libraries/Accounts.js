@@ -21,7 +21,9 @@ function newEthereumFunctionLibraryAccounts() {
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                networkClient.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
                 return
             }
 
@@ -29,7 +31,9 @@ function newEthereumFunctionLibraryAccounts() {
 
             /* Lets check the result of the method call */
             if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + status.error)
+                node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
                 return
             }
 
@@ -38,15 +42,12 @@ function newEthereumFunctionLibraryAccounts() {
                 privateKey: response.privateKey
             }
 
-            walletAccountNode.config = JSON.stringify(config)
-            walletAccountNode.name = 
-                address[address.length - 7] + 
-                address[address.length - 6] + 
-                address[address.length - 5] + 
-                address[address.length - 4] + 
-                address[address.length - 3] + 
-                address[address.length - 2] + 
-                address[address.length - 1] 
+            walletAccountNode.config = JSON.stringify(config, null, 4)
+            walletAccountNode.name =
+                response.address[response.address.length - 4] +
+                response.address[response.address.length - 3] +
+                response.address[response.address.length - 2] +
+                response.address[response.address.length - 1]
         }
     }
 }

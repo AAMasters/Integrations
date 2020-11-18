@@ -164,7 +164,7 @@
             "config": "{ \n\"address\": \"\",  \n\"privateKey\": \"\"\n}"
         },
         "addLeftIcons": true,
-        "level": 3,
+        "level": 0,
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Wallet->"
         },

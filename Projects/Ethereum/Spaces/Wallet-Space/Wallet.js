@@ -35,17 +35,17 @@ function newEthereumWalletSpace() {
 
         /* We will query the node only every 3 seconds */
         if (lastTryToReconnectDatetime === undefined) {
-            checkStatus()
+            checkBalances()
             lastTryToReconnectDatetime = (new Date()).valueOf()
         } else {
             let now = (new Date()).valueOf()
             if (now - lastTryToReconnectDatetime > 3000) {
-                checkStatus()
+                checkBalances()
                 lastTryToReconnectDatetime = now
             }
         }
 
-        async function checkStatus() {
+        async function checkBalances() {
             try {
                 if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
@@ -64,7 +64,7 @@ function newEthereumWalletSpace() {
  
                 }
             } catch (err) {
-                console.log('[ERROR] checkStatus -> err = ' + err.stack) 
+                console.log('[ERROR] checkBalances -> err = ' + err.stack) 
             }
         }
     }

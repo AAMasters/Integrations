@@ -7,7 +7,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
 
     return thisObject
 
-    function addAllOutputDatasets(node, functionLibraryUiObjectsFromNodes) {
+    function addAllOutputDatasets(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -40,11 +40,11 @@ function newSuperalgosFunctionLibraryMineFunctions() {
             'Output Dataset',
             'Output Dataset Folder',
             'datasets',
-            functionLibraryUiObjectsFromNodes
+            UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
         )
     }
 
-    function addAllDataDependencies(node, functionLibraryUiObjectsFromNodes) {
+    function addAllDataDependencies(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -73,7 +73,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
         function scanBotArray(botArray) {
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
+                let botProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Data Dependencies')
                 botProducts.name = bot.name
 
                 UI.projects.superalgos.utilities.folders.asymetricalFolderStructureCloning(
@@ -85,18 +85,18 @@ function newSuperalgosFunctionLibraryMineFunctions() {
                     'Data Dependency',
                     'Data Dependency Folder',
                     'datasets',
-                    functionLibraryUiObjectsFromNodes
+                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
                 )
             }
         }
     }
 
-    function addAllDataMineDataDependencies(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllDataMineDataDependencies(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             
             if (rootNode.type === 'Data Mine') {
-                let dataMineDataDependencies = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
+                let dataMineDataDependencies = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Data Dependencies')
                 dataMineDataDependencies.payload.referenceParent = rootNode
             }
         }

@@ -15,7 +15,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
 
     return thisObject
 
-    function addAllDataProducts(node, functionLibraryUiObjectsFromNodes) {
+    function addAllDataProducts(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -46,7 +46,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
 
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Bot Products')
+                let botProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Bot Products')
                 botProducts.name = bot.name
                 botProducts.payload.floatingObject.collapseToggle()
 
@@ -59,46 +59,46 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                     'Data Product',
                     'Data Product Folder',
                     undefined,
-                    functionLibraryUiObjectsFromNodes
+                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
                 )
             }
         }
     }
 
-    function addAllDataMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllDataMineProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Data Mine') {
-                let dataMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
+                let dataMineProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Data Mine Products')
                 dataMineProducts.payload.referenceParent = rootNode
             }
         }
     }
 
-    function addAllTradingMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllTradingMineProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Trading Mine') {
-                let tradingMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
+                let tradingMineProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Trading Mine Products')
                 tradingMineProducts.payload.referenceParent = rootNode
             }
         }
     }
 
-    function addAllLearningMineProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addAllLearningMineProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
 
             if (rootNode.type === 'Learning Mine') {
-                let learningMineProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
+                let learningMineProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Learning Mine Products')
                 learningMineProducts.payload.referenceParent = rootNode
             }
         }
     }
 
-    function addMissingTradingSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addMissingTradingSessionReferences(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
@@ -119,13 +119,13 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                 let marketTradingTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketTradingTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
-                    createSessionReference(node, session, 'Trading Session Reference', functionLibraryUiObjectsFromNodes)
+                    createSessionReference(node, session, 'Trading Session Reference', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
                 }
             }
         }
     }
 
-    function addMissingLearningSessionReferences(node, rootNodes, functionLibraryUiObjectsFromNodes) {
+    function addMissingLearningSessionReferences(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
@@ -140,26 +140,26 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                 let marketLearningTasks = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Learning Tasks', undefined, true, false, true, false)
                 if (node.payload.referenceParent.id !== marketLearningTasks.payload.referenceParent.id) { continue }
                 if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
-                    createSessionReference(node, session, 'Learning Session Reference', functionLibraryUiObjectsFromNodes)
+                    createSessionReference(node, session, 'Learning Session Reference', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
                 }
             }
         }
     }
 
-    function createSessionReference(node, session, nodeType, functionLibraryUiObjectsFromNodes) {
-        let sessionReference = functionLibraryUiObjectsFromNodes.addUIObject(node, nodeType)
+    function createSessionReference(node, session, nodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+        let sessionReference = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, nodeType)
         sessionReference.payload.referenceParent = session
     }
 
-    function addMissingMarketDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Data Products', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketDataProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Data Products', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
     }
 
-    function addMissingMarketTradingProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingMarketProducts(node, rootNodes, 'Market Trading Products', functionLibraryUiObjectsFromNodes)
+    function addMissingMarketTradingProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+        addMissingMarketProducts(node, rootNodes, 'Market Trading Products', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
     }
 
-    function addMissingMarketProducts(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingMarketProducts(node, rootNodes, newNodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
         let marketsArray = node.payload.referenceParent.exchangeMarkets.markets
@@ -167,21 +167,21 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         for (let i = 0; i < marketsArray.length; i++) {
             let market = marketsArray[i]
             if (UI.projects.superalgos.utilities.children.isMissingChildren(node, market, true) === true) {
-                let marketDataProducts = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                let marketDataProducts = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataProducts.payload.referenceParent = market
             }
         }
     }
 
-    function addMissingExchangeTradingProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Trading Products', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeTradingProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Trading Products', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
     }
 
-    function addMissingExchangeDataProducts(node, rootNodes, functionLibraryUiObjectsFromNodes) {
-        addMissingExchange(node, rootNodes, 'Exchange Data Products', functionLibraryUiObjectsFromNodes)
+    function addMissingExchangeDataProducts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+        addMissingExchange(node, rootNodes, 'Exchange Data Products', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
     }
 
-    function addMissingExchange(node, rootNodes, newNodeType, functionLibraryUiObjectsFromNodes) {
+    function addMissingExchange(node, rootNodes, newNodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -191,7 +191,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
                         if (UI.projects.superalgos.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
-                            let exchange = functionLibraryUiObjectsFromNodes.addUIObject(node, newNodeType)
+                            let exchange = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchange.payload.referenceParent = cryptoExchange
                         }
                     }

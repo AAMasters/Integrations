@@ -5,9 +5,9 @@ function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
 
     return thisObject
 
-    function runSuperScript(node, rootNodes, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
+    function runSuperScript(node, rootNodes, UI.projects.superalgos.functionLibraries.nodeCloning, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
         try {
-            let clone = functionLibraryNodeCloning.getNodeClone
+            let clone = UI.projects.superalgos.functionLibraries.nodeCloning.getNodeClone
             let executionResult = true
             let superAction = node
 
@@ -16,7 +16,7 @@ function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
                 spawnPosition.y = target.payload.position.y
 
                 if (exchange === undefined) {
-                    functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
+                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
                 } else {
                     let definition = getNodeDefinition(target)
                     for (let i = 0; i < definition.properties.length; i++) {
@@ -36,19 +36,19 @@ function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
                                 }
                             }
                             if (targetExchange === undefined) {
-                                targetExchange = functionLibraryUiObjectsFromNodes.addUIObject(target, exchangeNodeType)
+                                targetExchange = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(target, exchangeNodeType)
                                 targetExchange.payload.referenceParent = exchange
                             }
                             let nodesArray = targetExchange[arrayPropertyName]
                             nodesArray.push(templateClone)
-                            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, targetExchange, targetExchange)
+                            UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.createUiObjectFromNode(templateClone, targetExchange, targetExchange)
                         }
                     }
                 }
             }
 
             function deleteNode(node) {
-                functionLibraryNodeDeleter.deleteUIObject(node, rootNodes)
+                UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(node, rootNodes)
             }
 
             /* Validations */

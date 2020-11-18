@@ -158,10 +158,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         }
     }
 
-    function syncronizeTasksFoundAtWorkspaceWithBackEnd(functionLibraryTaskFunctions) {
+    function syncronizeTasksFoundAtWorkspaceWithBackEnd(UI.projects.superalgos.functionLibraries.taskFunctions) {
         for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
             let node = tasksFoundAtWorkspace[i]
-            functionLibraryTaskFunctions.syncronizeTaskWithBackEnd(node)
+            UI.projects.superalgos.functionLibraries.taskFunctions.syncronizeTaskWithBackEnd(node)
         }
         tasksFoundAtWorkspace = undefined
     }

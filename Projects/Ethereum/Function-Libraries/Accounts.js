@@ -5,9 +5,9 @@ function newEthereumFunctionLibraryAccounts() {
 
     return thisObject
 
-    function createWalletAccount(node, functionLibraryUiObjectsFromNodes) {
+    function createWalletAccount(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
 
-        let walletAccountNode = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Wallet Account')
+        let walletAccountNode = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Wallet Account')
 
         let params = {
             method: 'createWalletAccount',

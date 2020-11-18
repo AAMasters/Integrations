@@ -1,4 +1,4 @@
-function newWorkspaceFunctions() {
+function newSuperalgosFunctionLibraryWorkspaceFunctions() {
     thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects
     }

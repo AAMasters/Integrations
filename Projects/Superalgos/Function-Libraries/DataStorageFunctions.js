@@ -1,4 +1,4 @@
-function newDataStorageFunctions() {
+function newSuperalgosFunctionLibraryDataStorageFunctions() {
     thisObject = {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,

@@ -1,4 +1,4 @@
-function newSuperScriptsFunctions() {
+function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
     thisObject = {
         runSuperScript: runSuperScript
     }

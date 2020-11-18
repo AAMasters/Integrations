@@ -1,4 +1,4 @@
-function newAccounts() {
+function newEthereumFunctionLibraryAccounts() {
     thisObject = {
         createWalletAccount: createWalletAccount
     }

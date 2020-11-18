@@ -1,4 +1,4 @@
-function newChartingSpaceFunctions() {
+function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
     thisObject = {
         addAllLayerPanels: addAllLayerPanels,
         addAllLayerPolygons: addAllLayerPolygons,

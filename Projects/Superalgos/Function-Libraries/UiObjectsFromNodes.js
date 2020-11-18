@@ -1,4 +1,4 @@
-function newUiObjectsFromNodes() {
+function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
     thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,

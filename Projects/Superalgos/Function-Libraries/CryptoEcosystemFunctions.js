@@ -1,4 +1,4 @@
-function newCryptoEcosystemFunctions() {
+function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
     thisObject = {
         addMissingExchanges: addMissingExchanges,
         addMissingAssets: addMissingAssets,

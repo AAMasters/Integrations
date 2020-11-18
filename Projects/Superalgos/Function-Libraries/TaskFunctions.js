@@ -1,4 +1,4 @@
-function newTaskFunctions() {
+function newSuperalgosFunctionLibraryTaskFunctions() {
     thisObject = {
         syncronizeTaskWithBackEnd: syncronizeTaskWithBackEnd,
 

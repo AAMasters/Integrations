@@ -1,4 +1,4 @@
-function newTradingSessionFunctions() {
+function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
         runSession: runSession,

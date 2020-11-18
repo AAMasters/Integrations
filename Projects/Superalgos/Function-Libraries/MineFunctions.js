@@ -1,4 +1,4 @@
-function newMineFunctions() {
+function newSuperalgosFunctionLibraryMineFunctions() {
     thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 

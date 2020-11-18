@@ -156,7 +156,7 @@ function newLayer() {
             thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
             thisObject.container.frame.height = 70
 
-            let functionLibraryProtocolNode = newProtocolNode()
+            let functionLibraryProtocolNode = newSuperalgosFunctionLibraryProtocolNode()
             let lightingPath =
                 '->Layer->' +
                 'Data Product->' +

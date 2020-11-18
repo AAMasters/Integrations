@@ -1,4 +1,4 @@
-function newLearningSessionFunctions() {
+function newSuperalgosFunctionLibraryLearningSessionFunctions() {
     thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
         runSession: runSession,

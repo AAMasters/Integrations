@@ -1,4 +1,4 @@
-function newPluginsFunctions() {
+function newSuperalgosFunctionLibraryPluginsFunctions() {
     thisObject = {
         pluginMissingProjects: pluginMissingProjects,
         pluginMissingDataMines: pluginMissingDataMines,

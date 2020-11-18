@@ -7,10 +7,10 @@ function newEthereumActionSwitch() {
     }
 
     /* Superalgos Function Libraries */
-    let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
+    let functionLibraryUiObjectsFromNodes = newSuperalgosFunctionLibraryUiObjectsFromNodes()
 
     /* Ethereum Function Libraries */
-    let functionLibraryAccounts = newAccounts()
+    let functionLibraryAccounts = newEthereumFunctionLibraryAccounts()
 
     return thisObject
 

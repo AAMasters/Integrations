@@ -13,8 +13,7 @@ function newSuperalgosUtilitiesFolders() {
         destinationFoldersArrayPropertyName,
         clonedObjectType,
         destinationFolderType,
-        originObjectArrayPropertyName,
-        UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+        originObjectArrayPropertyName
     ) {
         /*
         This function will scan one branch of the workspace, and recreate 
@@ -86,8 +85,7 @@ function newSuperalgosUtilitiesFolders() {
                                 destinationFoldersArrayPropertyName,
                                 clonedObjectType,
                                 destinationFolderType,
-                                originObjectArrayPropertyName,
-                                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+                                originObjectArrayPropertyName
                             )
                         }
                         break

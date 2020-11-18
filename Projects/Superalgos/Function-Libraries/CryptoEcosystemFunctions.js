@@ -214,11 +214,7 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
 
     function installMarket(
         node,
-        rootNodes,
-        UI.projects.superalgos.functionLibraries.uiObjectsFromNodes,
-        UI.projects.superalgos.functionLibraries.nodeDeleter,
-        UI.projects.superalgos.functionLibraries.chartingSpaceFunctions,
-        UI.projects.superalgos.functionLibraries.dataStorageFunctions
+        rootNodes
     ) {
 
         let market = node

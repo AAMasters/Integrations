@@ -39,8 +39,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
             'outputDatasetFolders',
             'Output Dataset',
             'Output Dataset Folder',
-            'datasets',
-            UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+            'datasets'
         )
     }
 
@@ -84,8 +83,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
                     'dataDependencyFolders',
                     'Data Dependency',
                     'Data Dependency Folder',
-                    'datasets',
-                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+                    'datasets'
                 )
             }
         }

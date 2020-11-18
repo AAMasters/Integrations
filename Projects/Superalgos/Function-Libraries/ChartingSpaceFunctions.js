@@ -46,8 +46,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
                     'layerFolders',
                     'Layer',
                     'Layer Folder',
-                    undefined,
-                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+                    undefined
                 )
                 /*
                 There are some layers that should not exist, for example the ones related to Data Products

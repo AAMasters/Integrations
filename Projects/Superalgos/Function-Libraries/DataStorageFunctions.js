@@ -58,8 +58,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
                     'dataProductFolders',
                     'Data Product',
                     'Data Product Folder',
-                    undefined,
-                    UI.projects.superalgos.functionLibraries.uiObjectsFromNodes
+                    undefined
                 )
             }
         }

@@ -78,7 +78,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         eventsServerClient.raiseEvent('Task Manager', 'Task Status', event)
     }
 
-    function runTask(node, UI.projects.superalgos.functionLibraries.protocolNode, isDebugging, callBackFunction) {
+    function runTask(node, isDebugging, callBackFunction) {
 
         let networkNode = validations(node)
         if (networkNode === undefined) {
@@ -178,7 +178,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         eventsServerClient.raiseEvent('Task Manager', 'Run Task', event)
     }
 
-    function stopTask(node, UI.projects.superalgos.functionLibraries.protocolNode, callBackFunction) {
+    function stopTask(node, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */
@@ -268,7 +268,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         return networkNode
     }
 
-    function runAllTasks(taskManager, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllTasks(taskManager) {
         for (let i = 0; i < taskManager.tasks.length; i++) {
             let node = taskManager.tasks[i]
             let menu = node.payload.uiObject.menu
@@ -277,7 +277,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllTasks(taskManager, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllTasks(taskManager) {
         for (let i = 0; i < taskManager.tasks.length; i++) {
             let node = taskManager.tasks[i]
             let menu = node.payload.uiObject.menu
@@ -286,7 +286,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllTaskManagers(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllTaskManagers(parent) {
         for (let i = 0; i < parent.taskManagers.length; i++) {
             let node = parent.taskManagers[i]
             let menu = node.payload.uiObject.menu
@@ -296,7 +296,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllTaskManagers(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllTaskManagers(parent) {
         for (let i = 0; i < parent.taskManagers.length; i++) {
             let node = parent.taskManagers[i]
             let menu = node.payload.uiObject.menu
@@ -306,7 +306,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllExchangeDataTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllExchangeDataTasks(parent) {
         for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
             let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -316,7 +316,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllExchangeDataTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllExchangeDataTasks(parent) {
         for (let i = 0; i < parent.exchangeDataTasks.length; i++) {
             let node = parent.exchangeDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -326,7 +326,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllExchangeTradingTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllExchangeTradingTasks(parent) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -336,7 +336,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllExchangeTradingTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllExchangeTradingTasks(parent) {
         for (let i = 0; i < parent.exchangeTradingTasks.length; i++) {
             let node = parent.exchangeTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -346,7 +346,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllExchangeLearningTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllExchangeLearningTasks(parent) {
         for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
             let node = parent.exchangeLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -356,7 +356,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllExchangeLearningTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllExchangeLearningTasks(parent) {
         for (let i = 0; i < parent.exchangeLearningTasks.length; i++) {
             let node = parent.exchangeLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -366,7 +366,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllMarketDataTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllMarketDataTasks(parent) {
         for (let i = 0; i < parent.marketDataTasks.length; i++) {
             let node = parent.marketDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -376,7 +376,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllMarketDataTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllMarketDataTasks(parent) {
         for (let i = 0; i < parent.marketDataTasks.length; i++) {
             let node = parent.marketDataTasks[i]
             let menu = node.payload.uiObject.menu
@@ -386,7 +386,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllMarketTradingTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllMarketTradingTasks(parent) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -396,7 +396,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllMarketLearningTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllMarketLearningTasks(parent) {
         for (let i = 0; i < parent.marketLearningTasks.length; i++) {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -406,7 +406,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllMarketTradingTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllMarketTradingTasks(parent) {
         for (let i = 0; i < parent.marketTradingTasks.length; i++) {
             let node = parent.marketTradingTasks[i]
             let menu = node.payload.uiObject.menu
@@ -416,7 +416,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllMarketLearningTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllMarketLearningTasks(parent) {
         for (let i = 0; i < parent.marketLearningTasks.length; i++) {
             let node = parent.marketLearningTasks[i]
             let menu = node.payload.uiObject.menu
@@ -426,7 +426,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllDataMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllDataMineTasks(parent) {
         for (let i = 0; i < parent.dataMineTasks.length; i++) {
             let node = parent.dataMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -436,7 +436,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllDataMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllDataMineTasks(parent) {
         for (let i = 0; i < parent.dataMineTasks.length; i++) {
             let node = parent.dataMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -446,7 +446,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllTradingMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllTradingMineTasks(parent) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -456,7 +456,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function runAllLearningMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function runAllLearningMineTasks(parent) {
         for (let i = 0; i < parent.learningMineTasks.length; i++) {
             let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -466,7 +466,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllTradingMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllTradingMineTasks(parent) {
         for (let i = 0; i < parent.tradingMineTasks.length; i++) {
             let node = parent.tradingMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -476,7 +476,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function stopAllLearningMineTasks(parent, UI.projects.superalgos.functionLibraries.protocolNode) {
+    function stopAllLearningMineTasks(parent) {
         for (let i = 0; i < parent.learningMineTasks.length; i++) {
             let node = parent.learningMineTasks[i]
             let menu = node.payload.uiObject.menu
@@ -486,19 +486,19 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function addMissingExchangeDataTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingExchangeDataTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks')
     }
 
-    function addMissingExchangeTradingTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingExchangeTradingTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks')
     }
 
-    function addMissingExchangeLearningTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingExchangeLearningTasks(node, rootNodes) {
+        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks')
     }
 
-    function addMissingExchangeTasks(node, rootNodes, newNodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addMissingExchangeTasks(node, rootNodes, newNodeType) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -517,19 +517,19 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function addMissingMarketDataTasks(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Data Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingMarketDataTasks(node) {
+        addMissingMarketTasks(node, 'Market Data Tasks')
     }
 
-    function addMissingMarketTradingTasks(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Trading Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingMarketTradingTasks(node) {
+        addMissingMarketTasks(node, 'Market Trading Tasks')
     }
 
-    function addMissingMarketLearningTasks(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMarketTasks(node, 'Market Learning Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingMarketLearningTasks(node) {
+        addMissingMarketTasks(node, 'Market Learning Tasks')
     }
 
-    function addMissingMarketTasks(node,  newNodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addMissingMarketTasks(node,  newNodeType) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -546,19 +546,19 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function addMissingDataMineTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingDataMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks')
     }
 
-    function addMissingTradingMineTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingTradingMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks')
     }
 
-    function addMissingLearningMineTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
-        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks', UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+    function addMissingLearningMineTasks(node, rootNodes) {
+        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks')
     }
 
-    function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === rootNodeType) {
@@ -572,7 +572,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
     }
 
-    function addAllTasks(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllTasks(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
 

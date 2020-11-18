@@ -6,52 +6,10 @@ function newSuperalgosActionSwitch() {
         finalize: finalize
     }
 
-    let UI.projects.superalgos.functionLibraries.attachDetach = newSuperalgosFunctionLibraryAttachDetach()
-    let UI.projects.superalgos.functionLibraries.chainAttachDetach = newSuperalgosFunctionLibraryChainAttachDetach()
-    let UI.projects.superalgos.functionLibraries.nodeDeleter = newSuperalgosFunctionLibraryNodeDeleter()
-    let UI.projects.superalgos.functionLibraries.uiObjectsFromNodes = newSuperalgosFunctionLibraryUiObjectsFromNodes()
-    let UI.projects.superalgos.functionLibraries.protocolNode = newSuperalgosFunctionLibraryProtocolNode()
-    let UI.projects.superalgos.functionLibraries.nodeCloning = newSuperalgosFunctionLibraryNodeCloning()
-    let UI.projects.superalgos.functionLibraries.shortcutKeys = newSuperalgosFunctionLibraryShortcutKeys()
-    let UI.projects.superalgos.functionLibraries.onFocus = newSuperalgosFunctionLibraryOnFocus()
-    let UI.projects.superalgos.functionLibraries.superScriptsFunctions = newSuperalgosFunctionLibrarySuperScriptsFunctions()
-    let UI.projects.superalgos.functionLibraries.webhookFunctions = newSuperalgosFunctionLibraryWebhookFunctions()
-    let UI.projects.superalgos.functionLibraries.dependenciesFilter = newSuperalgosFunctionLibraryDependenciesFilter()
-    let UI.projects.superalgos.functionLibraries.nodePath = newSuperalgosFunctionLibraryNodePath()
-    let UI.projects.superalgos.functionLibraries.taskFunctions = newSuperalgosFunctionLibraryTaskFunctions()
-    let UI.projects.superalgos.functionLibraries.tradingSessionFunctions = newSuperalgosFunctionLibraryTradingSessionFunctions()
-    let UI.projects.superalgos.functionLibraries.learningSessionFunctions = newSuperalgosFunctionLibraryLearningSessionFunctions()
-    let UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions = newSuperalgosFunctionLibraryCryptoEcosystemFunctions()
-    let UI.projects.superalgos.functionLibraries.mineFunctions = newSuperalgosFunctionLibraryMineFunctions()
-    let UI.projects.superalgos.functionLibraries.dataStorageFunctions = newSuperalgosFunctionLibraryDataStorageFunctions()
-    let UI.projects.superalgos.functionLibraries.chartingSpaceFunctions = newSuperalgosFunctionLibraryChartingSpaceFunctions()
-    let UI.projects.superalgos.functionLibraries.pluginsFunctions = newSuperalgosFunctionLibraryPluginsFunctions()
-    let UI.projects.superalgos.functionLibraries.workspaceFunctions = newSuperalgosFunctionLibraryWorkspaceFunctions()
-
     return thisObject
 
     function finalize() {
-        UI.projects.superalgos.functionLibraries.attachDetach = undefined
-        UI.projects.superalgos.functionLibraries.chainAttachDetach = undefined
-        UI.projects.superalgos.functionLibraries.nodeDeleter = undefined
-        UI.projects.superalgos.functionLibraries.uiObjectsFromNodes = undefined
-        UI.projects.superalgos.functionLibraries.protocolNode = undefined
-        UI.projects.superalgos.functionLibraries.nodeCloning = undefined
-        UI.projects.superalgos.functionLibraries.shortcutKeys = undefined
-        UI.projects.superalgos.functionLibraries.onFocus = undefined
-        UI.projects.superalgos.functionLibraries.superScriptsFunctions = undefined
-        UI.projects.superalgos.functionLibraries.webhookFunctions = undefined
-        UI.projects.superalgos.functionLibraries.dependenciesFilter = undefined
-        UI.projects.superalgos.functionLibraries.nodePath = undefined
-        UI.projects.superalgos.functionLibraries.taskFunctions = undefined
-        UI.projects.superalgos.functionLibraries.tradingSessionFunctions = undefined
-        UI.projects.superalgos.functionLibraries.learningSessionFunctions = undefined
-        UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions = undefined
-        UI.projects.superalgos.functionLibraries.mineFunctions = undefined
-        UI.projects.superalgos.functionLibraries.dataStorageFunctions = undefined
-        UI.projects.superalgos.functionLibraries.chartingSpaceFunctions = undefined
-        UI.projects.superalgos.functionLibraries.pluginsFunctions = undefined
-        UI.projects.superalgos.functionLibraries.workspaceFunctions = undefined
+
     }
 
     function initialize() {
@@ -85,15 +43,15 @@ function newSuperalgosActionSwitch() {
             }
 
             case 'Syncronize Tasks': {
-                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd(UI.projects.superalgos.functionLibraries.taskFunctions)
+                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Trading Sessions': {
-                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd(UI.projects.superalgos.functionLibraries.tradingSessionFunctions)
+                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Learning Sessions': {
-                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd(UI.projects.superalgos.functionLibraries.learningSessionFunctions)
+                UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Play Tutorials': {
@@ -206,292 +164,292 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Debug Task':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runTask(action.node, UI.projects.superalgos.functionLibraries.protocolNode, true, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runTask(action.node, true, action.callBackFunction)
                 }
                 break
             case 'Run Task':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runTask(action.node, UI.projects.superalgos.functionLibraries.protocolNode, false, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runTask(action.node, false, action.callBackFunction)
                 }
                 break
             case 'Stop Task':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopTask(action.node, UI.projects.superalgos.functionLibraries.protocolNode, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopTask(action.node, action.callBackFunction)
                 }
                 break
             case 'Run All Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTasks(action.node)
                 }
                 break
             case 'Stop All Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTasks(action.node)
                 }
                 break
             case 'Run All Task Managers':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTaskManagers(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTaskManagers(action.node)
                 }
                 break
             case 'Stop All Task Managers':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTaskManagers(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
                 }
                 break
             case 'Run All Exchange Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeDataTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeDataTasks(action.node)
                 }
                 break
             case 'Stop All Exchange Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeDataTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeDataTasks(action.node)
                 }
                 break
             case 'Run All Exchange Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeTradingTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeTradingTasks(action.node)
                 }
                 break
             case 'Stop All Exchange Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeTradingTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeTradingTasks(action.node)
                 }
                 break
             case 'Run All Exchange Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeLearningTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllExchangeLearningTasks(action.node)
                 }
                 break
             case 'Stop All Exchange Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeLearningTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllExchangeLearningTasks(action.node)
                 }
                 break
             case 'Run All Market Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketDataTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketDataTasks(action.node)
                 }
                 break
             case 'Stop All Market Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketDataTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketDataTasks(action.node)
                 }
                 break
             case 'Run All Market Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketTradingTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketTradingTasks(action.node)
                 }
                 break
             case 'Stop All Market Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketTradingTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketTradingTasks(action.node)
                 }
                 break
             case 'Run All Market Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketLearningTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllMarketLearningTasks(action.node)
                 }
                 break
             case 'Stop All Market Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketLearningTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllMarketLearningTasks(action.node)
                 }
                 break
             case 'Run All Data Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllDataMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllDataMineTasks(action.node)
                 }
                 break
             case 'Stop All Data Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllDataMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllDataMineTasks(action.node)
                 }
                 break
             case 'Run All Trading Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTradingMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllTradingMineTasks(action.node)
                 }
                 break
             case 'Stop All Trading Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTradingMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllTradingMineTasks(action.node)
                 }
                 break
             case 'Run All Learning Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllLearningMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.runAllLearningMineTasks(action.node)
                 }
                 break
             case 'Stop All Learning Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllLearningMineTasks(action.node, UI.projects.superalgos.functionLibraries.protocolNode)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.stopAllLearningMineTasks(action.node)
                 }
                 break
             case 'Add Missing Exchange Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Data Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketDataTasks(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketDataTasks(action.node)
                 }
                 break
             case 'Add Missing Data Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Exchange Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Trading Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketTradingTasks(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketTradingTasks(action.node)
                 }
                 break
             case 'Add Missing Trading Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Exchange Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Learning Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketLearningTasks(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingMarketLearningTasks(action.node)
                 }
                 break
             case 'Add Missing Learning Mine Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Tasks':
                 {
-                    UI.projects.superalgos.functionLibraries.taskFunctions.addAllTasks(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.taskFunctions.addAllTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Crypto Exchanges':
                 {
-                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingExchanges(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingExchanges(action.node)
                 }
                 break
             case 'Add Missing Assets':
                 {
-                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingAssets(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingAssets(action.node)
                 }
                 break
             case 'Add Missing Markets':
                 {
-                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingMarkets(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeCloning)
+                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.addMissingMarkets(action.node)
                 }
                 break
             case 'Install Market':
                 {
-                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.installMarket(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter, UI.projects.superalgos.functionLibraries.chartingSpaceFunctions, UI.projects.superalgos.functionLibraries.dataStorageFunctions)
+                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.installMarket(action.node, action.rootNodes)
                 }
                 break
             case 'Uninstall Market':
                 {
-                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter, UI.projects.superalgos.functionLibraries.chartingSpaceFunctions, UI.projects.superalgos.functionLibraries.dataStorageFunctions)
+                    UI.projects.superalgos.functionLibraries.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Output Datasets':
                 {
-                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllOutputDatasets(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllOutputDatasets(action.node)
                 }
                 break
             case 'Add All Data Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllDataProducts(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllDataProducts(action.node)
                 }
                 break
             case 'Add All Data Mine Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Learning Mine Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Trading Mine Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Trading Session References':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Learning Session References':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Data Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketDataProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketDataProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Trading Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Exchange Trading Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Exchange Data Products':
                 {
-                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Data Dependencies':
                 {
-                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllDataDependencies(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllDataDependencies(action.node)
                 }
                 break
             case 'Add All Data Mine Dependencies':
                 {
-                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
                 }
                 break
             case 'Add All Layer Panels':
                 {
-                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllLayerPanels(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllLayerPanels(action.node)
                 }
                 break
             case 'Add All Layer Polygons':
                 {
-                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllLayerPolygons(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllLayerPolygons(action.node)
                 }
                 break
             case 'Add All Mine Layers':
                 {
-                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter)
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Time Machines':
                 {
-                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingTimeMachines(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter)
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingTimeMachines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Dashboards':
                 {
-                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter)
+                    UI.projects.superalgos.functionLibraries.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes)
                 }
                 break
             case 'Play Tutorial':
@@ -536,37 +494,37 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Run Trading Session':
                 {
-                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.runSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, UI.projects.superalgos.functionLibraries.dependenciesFilter, false, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.runSession(action.node, false, action.callBackFunction)
                 }
                 break
             case 'Resume Trading Session':
                 {
-                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.runSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, UI.projects.superalgos.functionLibraries.dependenciesFilter, true, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.runSession(action.node, true, action.callBackFunction)
                 }
                 break
             case 'Stop Trading Session':
                 {
-                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.stopSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.tradingSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Learning Session':
                 {
-                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.runSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, UI.projects.superalgos.functionLibraries.dependenciesFilter, false, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.runSession(action.node, false, action.callBackFunction)
                 }
                 break
             case 'Resume Learning Session':
                 {
-                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.runSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, UI.projects.superalgos.functionLibraries.dependenciesFilter, true, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.runSession(action.node, true, action.callBackFunction)
                 }
                 break
             case 'Stop Learning Session':
                 {
-                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.stopSession(action.node, UI.projects.superalgos.functionLibraries.protocolNode, action.callBackFunction)
+                    UI.projects.superalgos.functionLibraries.learningSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
             case 'Run Super Action':
                 {
-                    UI.projects.superalgos.functionLibraries.superScriptsFunctions.runSuperScript(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.nodeCloning, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter)
+                    UI.projects.superalgos.functionLibraries.superScriptsFunctions.runSuperScript(action.node, action.rootNodes)
                 }
                 break
             case 'Parent Attach': {
@@ -618,42 +576,42 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Add Missing Plugin Projects':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingProjects(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingProjects(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Data Mines':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingDataMines(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingDataMines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Trading Mines':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingMines(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingMines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Trading Systems':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingSystems(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingSystems(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Trading Engines':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingEngines(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingEngines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Super Scripts':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingSuperScripts(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingSuperScripts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Tutorials':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTutorials(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTutorials(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Workspace Projects':
                 {
-                    UI.projects.superalgos.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                    UI.projects.superalgos.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
                 }
                 break
         }

@@ -36,7 +36,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         eventsServerClient.raiseEvent(key, 'Learning Session Status')
     }
 
-    function runSession(node, UI.projects.superalgos.functionLibraries.protocolNode, UI.projects.superalgos.functionLibraries.dependenciesFilter, resume, callBackFunction) {
+    function runSession(node, resume, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */
@@ -145,7 +145,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         }
     }
 
-    function stopSession(node, UI.projects.superalgos.functionLibraries.protocolNode, callBackFunction) {
+    function stopSession(node, callBackFunction) {
         let networkNode = validations(node)
         if (networkNode === undefined) {
             /* This means that the validations failed. */

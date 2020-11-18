@@ -5,7 +5,7 @@ function newSuperalgosFunctionLibraryWorkspaceFunctions() {
 
     return thisObject
 
-    function addMissingWorkspaceProjects(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addMissingWorkspaceProjects(node, rootNodes) {
         let url = 'ProjectNames'
         httpRequest(undefined, url, onResponse)
 

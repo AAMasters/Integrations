@@ -336,7 +336,7 @@
         "functionLibraries": [
             {
                 "name": "Accounts",
-                "propertyName": "Accounts",
+                "propertyName": "accounts",
                 "functionName": "newEthereumFunctionLibraryAccounts"
             }
         ],

@@ -24,7 +24,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addPluginFileIfNeeded(node, fileNames) {
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
@@ -35,7 +35,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingProjects(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingProjects(node, rootNodes) {
         let url = 'ProjectNames'
         httpRequest(undefined, url, onResponse)
 
@@ -73,7 +73,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         return config.codeName
     }
 
-    function pluginMissingDataMines(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingDataMines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -85,11 +85,11 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingMines(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingTradingMines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -101,11 +101,11 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingSystems(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingTradingSystems(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -117,11 +117,11 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingEngines(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingTradingEngines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -133,11 +133,11 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingSuperScripts(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingSuperScripts(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -149,11 +149,11 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Super-Scripts', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTutorials(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function pluginMissingTutorials(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -165,7 +165,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+            addPluginFileIfNeeded(node, fileNames)
         }
     }
 }

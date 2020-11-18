@@ -158,7 +158,7 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         }
     }
 
-    function syncronizeTasksFoundAtWorkspaceWithBackEnd(UI.projects.superalgos.functionLibraries.taskFunctions) {
+    function syncronizeTasksFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
             let node = tasksFoundAtWorkspace[i]
             UI.projects.superalgos.functionLibraries.taskFunctions.syncronizeTaskWithBackEnd(node)
@@ -166,18 +166,18 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         tasksFoundAtWorkspace = undefined
     }
 
-    function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+    function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
             let node = tradingSessionsFoundAtWorkspace[i]
-            functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.superalgos.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         tradingSessionsFoundAtWorkspace = undefined
     }
 
-    function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd(functionLibrarySessionFunctions) {
+    function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            functionLibrarySessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.superalgos.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }

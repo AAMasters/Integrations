@@ -124,7 +124,7 @@ function newSuperalgosUtilitiesNodeChildren() {
         }
     }
 
-    function findOrCreateChildWithReference(startingNode, childType, referencedNode, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function findOrCreateChildWithReference(startingNode, childType, referencedNode) {
         /*
         This function find the child node of starting node that references
         refereced node. If there is none, then it creates a child and stablish
@@ -140,7 +140,7 @@ function newSuperalgosUtilitiesNodeChildren() {
         return child
     }
 
-    function findAndRecreateChildWithReference(startingNode, childType, referencedNode, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function findAndRecreateChildWithReference(startingNode, childType, referencedNode, rootNodes) {
         /* 
         This function finds the child of the starting node that references
         the reference node and if found it deletes it. Existing or not

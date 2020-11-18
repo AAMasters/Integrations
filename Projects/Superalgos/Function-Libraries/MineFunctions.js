@@ -7,7 +7,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
 
     return thisObject
 
-    function addAllOutputDatasets(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllOutputDatasets(node) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -44,7 +44,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
         )
     }
 
-    function addAllDataDependencies(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllDataDependencies(node) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -91,7 +91,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
         }
     }
 
-    function addAllDataMineDataDependencies(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllDataMineDataDependencies(node, rootNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             

@@ -10,7 +10,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
 
     return thisObject
 
-    function addAllMineLayers(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function addAllMineLayers(node, rootNodes) {
 
         /* Validations to see if we can do this or not. */
         if (node.payload === undefined) { return }
@@ -90,7 +90,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
         }
     }
 
-    function addMissingTimeMachines(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function addMissingTimeMachines(node, rootNodes) {
         if (node.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('This node needs to have a Reference Parent for this command tu run.')
             return
@@ -128,14 +128,14 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
                     let market = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.superalgos.utilities.children.isMissingChildren(node, session, true) === true) {
-                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter)
+                        createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes)
                     }
                 }
             }
         }
     }
 
-    function createTimeMachine(dashboard, session, market, networkNode, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function createTimeMachine(dashboard, session, market, networkNode, rootNodes) {
         let mineProducts
         let timeMachine = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(dashboard, 'Time Machine')
         let exchange = market.payload.parentNode.payload.parentNode
@@ -269,7 +269,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
         }
     }
 
-    function addMissingDashboards(node, rootNodes, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function addMissingDashboards(node, rootNodes) {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Network') {
@@ -305,7 +305,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
         }
     }
 
-    function addAllLayerPanels(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllLayerPanels(node) {
         if (validateReferences(node) !== true) { return }
         let layerNode = node.payload.parentNode
 
@@ -317,7 +317,7 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
         }
     }
 
-    function addAllLayerPolygons(node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes) {
+    function addAllLayerPolygons(node) {
         if (validateReferences(node) !== true) { return }
         let layerNode = node.payload.parentNode
 

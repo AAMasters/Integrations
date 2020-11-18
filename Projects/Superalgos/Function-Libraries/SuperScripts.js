@@ -5,7 +5,7 @@ function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
 
     return thisObject
 
-    function runSuperScript(node, rootNodes, UI.projects.superalgos.functionLibraries.nodeCloning, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes, UI.projects.superalgos.functionLibraries.nodeDeleter) {
+    function runSuperScript(node, rootNodes) {
         try {
             let clone = UI.projects.superalgos.functionLibraries.nodeCloning.getNodeClone
             let executionResult = true

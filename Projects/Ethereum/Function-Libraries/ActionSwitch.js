@@ -6,17 +6,11 @@ function newEthereumActionSwitch() {
         finalize: finalize
     }
 
-    /* Superalgos Function Libraries */
-    let UI.projects.superalgos.functionLibraries.uiObjectsFromNodes = newSuperalgosFunctionLibraryUiObjectsFromNodes()
-
-    /* Ethereum Function Libraries */
-    let UI.projects.ethereum.functionLibraries.accounts = newEthereumFunctionLibraryAccounts()
 
     return thisObject
 
     function finalize() {
-        UI.projects.superalgos.functionLibraries.uiObjectsFromNodes = undefined
-        UI.projects.ethereum.functionLibraries.accounts = undefined
+
     }
 
     function initialize() {
@@ -26,7 +20,7 @@ function newEthereumActionSwitch() {
     async function executeAction(action) {
         switch (action.name) {
             case 'Create Wallet Account': {
-                UI.projects.ethereum.functionLibraries.accounts.createWalletAccount(action.node, UI.projects.superalgos.functionLibraries.uiObjectsFromNodes)
+                UI.projects.ethereum.functionLibraries.accounts.createWalletAccount(action.node)
                 break
             }
         }

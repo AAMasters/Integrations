@@ -340,6 +340,13 @@
                 "functionName": "newEthereumFunctionLibraryAccounts"
             }
         ],
+        "utilities": [
+            {
+                "name": "Route To Client",
+                "propertyName": "routeToClient",
+                "functionName": "newEthereumUtilitiesRouteToClient"
+            }
+        ],
         "spaces": [
             {
                 "name": "Blockchain Space",

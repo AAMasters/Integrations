@@ -58,13 +58,50 @@ function newEthereumWalletSpace() {
                     }
                 }
 
-
                 for (let i = 0; i < wallets.length; i++) {
                     let wallet = wallets[i]
- 
+
+                    let lightingPath = '' +
+                        'Ethereum Wallet->' +
+                        'Wallet Account->' +
+                        'ETH Balance->' +
+                        'Token Balance->' +
+                        'Ethereum Token->' +
+                        'ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->'
+
+                    let walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
+
+                    let params = {
+                        method: 'createWalletAccount',
+                        entropy: walletAccountNode.id
+                    }
+
+                    let url = 'WEB3' // we don't need to ask this to any specific superalgos node.
+
+                    httpRequest(JSON.stringify(params), url, onResponse)
+
+                    function onResponse(err, data) {
+                        /* Lets check the result of the call through the http interface */
+                        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            node.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                            return
+                        }
+
+                        let response = JSON.parse(data)
+
+                        /* Lets check the result of the method call */
+                        if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            node.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                            walletAccountNode.payload.uiObject.menu.internalClick('Delete UI Object')
+                            return
+                        }
+                    }
                 }
             } catch (err) {
-                console.log('[ERROR] checkBalances -> err = ' + err.stack) 
+                console.log('[ERROR] checkBalances -> err = ' + err.stack)
             }
         }
     }

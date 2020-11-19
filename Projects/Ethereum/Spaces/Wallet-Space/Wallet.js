@@ -61,6 +61,29 @@ function newEthereumWalletSpace() {
                 for (let i = 0; i < wallets.length; i++) {
                     let wallet = wallets[i]
 
+                    if (wallet.networkClientReference === undefined) {
+                        wallet.payload.uiObject.setWarningMessage('A Network Client Reference is needed in order to fetch Account Balances from a Network Client.')
+                        continue
+                    }
+
+                    if (wallet.networkClientReference.payload === undefined) {
+                        // node exists without payload, probably has been deleted.
+                        continue
+                    }
+
+                    if (wallet.networkClientReference.payload.referenceParent === undefined) {
+                        wallet.networkClientReference.payload.uiObject.setWarningMessage('A reference to a Network Client is needed in order to fetch Account Balances from a Network Client.')
+                        continue
+                    }
+
+                    let networkClient = wallet.networkClientReference.payload.reference
+
+                    let route = UI.projects.ethereum.utilities.routeToClient.buildRouteToClient(networkClient)
+
+                    if (route === undefined) { continue } // something went wrong building the route.
+
+                    route.params.method = 'getWalletBalances'
+
                     let lightingPath = '' +
                         'Ethereum Wallet->' +
                         'Wallet Account->' +
@@ -69,15 +92,7 @@ function newEthereumWalletSpace() {
                         'Ethereum Token->' +
                         'ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->'
 
-                    let walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
-
-                    let networkClient = blockchainNetwork.networkClients[j]
-
-                    let route = UI.projects.ethereum.utilities.routeToClient.buildRouteToClient(networkClient)
-
-                    if (route === undefined) { continue } // something went wrong building the route.
-
-                    route.params.method = 'getNetworkClientStatus'
+                    route.params.walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
 
                     httpRequest(JSON.stringify(route.params), route.url, onResponse)
 
@@ -96,7 +111,22 @@ function newEthereumWalletSpace() {
                             return
                         }
 
-                        showStatus(status)
+                        showBalances(data.walletDefinition)
+                    }
+
+                    function showBalances(walletDefinition) {
+                        for (let i = 0; i < walletDefinition.walletAccounts.length; i++) {
+                            let walletAccount = walletDefinition.walletAccounts[i]
+
+                            if (walletAccount.ethBalance !== undefined) {
+                                wallet.walletAccounts[i].ethBalance.payload.uiObject.setValue(walletAccount.ethBalance.value)
+                            }
+
+                            for (let j = 0; j < walletAccount.tokenBalances.length; j++) {
+                                let tokenBalance = walletAccount.tokenBalances[j]
+                                wallet.walletAccounts[i].tokenBalances[j].payload.uiObject.setValue(tokenBalance.value)
+                            }
+                        }
                     }
                 }
             } catch (err) {

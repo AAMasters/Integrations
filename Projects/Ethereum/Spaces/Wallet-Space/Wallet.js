@@ -76,7 +76,7 @@ function newEthereumWalletSpace() {
                         continue
                     }
 
-                    let networkClient = wallet.networkClientReference.payload.reference
+                    let networkClient = wallet.networkClientReference.payload.referenceParent
 
                     let route = UI.projects.ethereum.utilities.routeToClient.buildRouteToClient(networkClient)
 
@@ -103,15 +103,15 @@ function newEthereumWalletSpace() {
                             return
                         }
 
-                        let status = JSON.parse(data)
+                        let response = JSON.parse(data)
 
                         /* Lets check the result of the method call */
-                        if (status.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + status.error)
+                        if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            networkClient.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
                             return
                         }
 
-                        showBalances(data.walletDefinition)
+                        showBalances(response.walletDefinition)
                     }
 
                     function showBalances(walletDefinition) {
@@ -119,12 +119,23 @@ function newEthereumWalletSpace() {
                             let walletAccount = walletDefinition.walletAccounts[i]
 
                             if (walletAccount.ethBalance !== undefined) {
-                                wallet.walletAccounts[i].ethBalance.payload.uiObject.setValue(walletAccount.ethBalance.value)
+
+                                let uiObject = wallet.walletAccounts[i].ethBalance.payload.uiObject
+
+                                if (walletAccount.error !== undefined) {
+                                    uiObject.setErrorMessage(walletAccount.error)
+                                } else {
+                                    let value = walletAccount.ethBalance.value / 1000000000000000000
+                                    uiObject.valueAtAngle = false
+                                    uiObject.setValue(value + ' ETH')
+                                }
                             }
 
                             for (let j = 0; j < walletAccount.tokenBalances.length; j++) {
                                 let tokenBalance = walletAccount.tokenBalances[j]
-                                wallet.walletAccounts[i].tokenBalances[j].payload.uiObject.setValue(tokenBalance.value)
+                                let uiObject = wallet.walletAccounts[i].tokenBalances[j].payload.uiObject
+                                uiObject.valueAtAngle = false
+                                uiObject.setValue(tokenBalance.value + ' ' + uiObject.payload.node.name)
                             }
                         }
                     }

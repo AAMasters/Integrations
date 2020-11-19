@@ -82,13 +82,7 @@
                 "autoAdd": true
             },
             {
-                "name": "walletKeys",
-                "type": "node",
-                "childType": "Wallet Keys",
-                "autoAdd": true
-            },
-            {
-                "name": "walletAccount",
+                "name": "walletAccounts",
                 "type": "array",
                 "childType": "Wallet Account"
             }
@@ -169,7 +163,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Ethereum Wallet->"
         },
-        "propertyNameAtParent": "walletAccount",
+        "propertyNameAtParent": "walletAccounts",
         "properties": [
             {
                 "name": "ethBalance",
@@ -177,7 +171,7 @@
                 "childType": "ETH Balance"
             },
             {
-                "name": "tokenBalance",
+                "name": "tokenBalances",
                 "type": "array",
                 "childType": "Token Balance"
             }
@@ -230,7 +224,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Wallet Account->"
         },
-        "propertyNameAtParent": "tokenBalance",
+        "propertyNameAtParent": "tokenBalances",
         "icon": "ethereum"
     },
     {
